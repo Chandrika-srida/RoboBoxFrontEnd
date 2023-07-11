@@ -7,7 +7,7 @@ background: none;
 font-weight: Bold;
 line-height: 1.5;
 text-transform: capitalize;
-font-size: 20px;
+font-size: 1.3rem;
 color: ${primary};
 text-align: center;
 }
@@ -16,6 +16,15 @@ ${props => props.margin === '30px' && css`
   `}
   ${props => props.left && css`
   text-align: left;
+  `}
+  ${props => props.secondary && css`
+  color:${secondary};
+  `}
+  ${props => props.third && css`
+  color:${third};
+  `}
+  ${props => props.fourth && css`
+  color:${fourth};
   `}
   
 `;

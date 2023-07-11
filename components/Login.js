@@ -1,6 +1,6 @@
 import Center from "./Center";
 import styled from "styled-components";
-import {third,fourth} from "@/lib/colors"; 
+import {third} from "@/lib/colors"; 
 import Head from "@/components/Head";
 import {DesStyle} from "@/components/Des";
 import ButtonLink from "./ButtonLink";
@@ -8,34 +8,31 @@ import Bg from "@/components/Bg";
 
 const Des = styled.div`
   ${DesStyle};
-  margin:30px 0px 20px 0px;
+  margin:4vh 0px;
+  font-weight: normal;
 `;
 
 
 const SubHead = styled.div`
 font-weight: bold;
-font-size: 30px;
+font-size: 2rem;
 text-transform: capitalise;
-margin: 10px;
 `;
 
 const Box = styled.div`
 display:grid;
 grid-template-columns: 1fr 1fr;
-row-gap: 50px;
-column-gap: 100px;
+gap: 5vw;
 // border: 5px solid purple;
-margin: 50px auto;
+margin: 5vh auto;
 margin-bottom: 0px;
 justify-content:space-between;
 `;
 const IBoxc = styled.div`
-background-color: ${fourth};
-padding: 30px 30px 30px 50px;
-border-radius: 20px;
+background-color: ${third};
+padding: 5vh;
+// border-radius: 20px;
 // border: 5px solid purple;
-
-
 `;
 
 export default function Login() {
@@ -47,9 +44,9 @@ export default function Login() {
           <IBoxc>
             <SubHead>For Teachers</SubHead>
             <Des left>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Cupiditate et hic voluptatibus fugit rerum, eos, aut perferendis
-              at nesciunt nostrum obcaecati exercitationem
+              at nesciunt 
             </Des>
             <ButtonLink href={"/"}>Login</ButtonLink>
             <Des>Don't have an account?</Des>
@@ -58,9 +55,9 @@ export default function Login() {
           <IBoxc>
             <SubHead>For Students</SubHead>
             <Des left>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Cupiditate et hic voluptatibus fugit rerum, eos, aut perferendis
-              at nesciunt nostrum obcaecati exercitationem
+              at nesciunt 
             </Des>
             <ButtonLink href={"/"}>Login</ButtonLink>
             <Des>Don't have an account?</Des>

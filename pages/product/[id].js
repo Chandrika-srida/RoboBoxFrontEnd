@@ -1,16 +1,18 @@
 import Center from "@/components/Center";
-import Header from "@/components/Header";
-import Title from "@/components/Title";
+import Des from "@/components/Des";
 import {mongooseConnect} from "@/lib/mongoose";
 import {Product} from "@/models/Product";
 import styled from "styled-components";
 import WhiteBox from "@/components/WhiteBox";
 import ProductImages from "@/components/ProductImages";
-import Button from "@/components/Button";
+import {ButtonStyle} from "@/components/Button";
 import CartIcon from "@/components/icons/CartIcon";
 import {useContext} from "react";
 import {CartContext} from "@/components/CartContext";
 
+const Button=styled.button`
+${ButtonStyle};
+`;
 const ColWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -33,14 +35,13 @@ export default function ProductPage({product}) {
   const {addProduct} = useContext(CartContext);
   return (
     <>
-      <Header />
       <Center>
         <ColWrapper>
           <WhiteBox>
             <ProductImages images={product.images} />
           </WhiteBox>
           <div>
-            <Title>{product.title}</Title>
+            <Des>{product.title}</Des>
             <p>{product.description}</p>
             <PriceRow>
               <div>

@@ -5,12 +5,13 @@ import Button from "@/components/Button";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "@/components/CartContext";
 import axios from "axios";
-import Input from "@/components/Input";
-
+import Bg from "@/components/Bg";
+import Head from "@/components/Head";
+import { primary,secondary,third } from "@/lib/colors";
 
 
 const ColumnsWrapper = styled.div`
-  display: grid;
+display: grid;
   left: 50%;
   grid-template-columns: 1fr;
   @media screen and (min-width: 768px) {
@@ -19,35 +20,34 @@ const ColumnsWrapper = styled.div`
   gap: 40px;
   margin-top: 40px;
 `;
-
-const Box = styled.div`
-  left: 800px;
-  justify-content: center;
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 30px;
+const Input = styled.input`
+  width: 100%;
+  padding: 0.5rem;
+  font-size:1.3rem;
+  margin-bottom: 1rem;
+  border: 2px solid ${primary};
+  border-radius: 5px;
+  box-sizing:border-box;
+  background-color:;
 `;
-
 const CityHolder = styled.div`
-  display: flex;
-  gap: 5px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
 `;
 
 const Select = styled.select`
   width: 100%;
-  padding: 5px;
+  padding: 0.5rem;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 2px solid ${primary};
   background-color: #fff;
-  margin-bottom: 5px;
+  margin-bottom: 2.5rem;
+  font-size:1.3rem;
 `;
 
-const CartPageWrapper = styled.div`
-  background-image: url('image.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
+const Box=styled.div`
+width:70vw;
 `;
 
 export default function CartPage() {
@@ -111,10 +111,8 @@ export default function CartPage() {
         <Header />
         <Center>
           <ColumnsWrapper>
-            <Box>
               <h1>Thanks for showing interest!</h1>
               <p>Our team will contact you shortly.</p>
-            </Box>
           </ColumnsWrapper>
         </Center>
       </>
@@ -126,12 +124,12 @@ export default function CartPage() {
   return (
     <>
       <Header />
+      <Bg>
       <Center>
-        <CartPageWrapper>
-          <ColumnsWrapper>
             {!!cartProducts?.length && (
-              <Box>
-                <h2>Book Your Workshop Now!</h2>
+              <>
+                <Head>Book Your Workshop Now!</Head>
+                <Box>
                 <Input
                   type="text"
                   placeholder="Name"
@@ -191,14 +189,14 @@ export default function CartPage() {
                   <option value="Demonstrative">Demonstrative</option>
                   <option value="Hands-On">Hands-On</option>
                 </Select>
+                </Box>
                 <Button black block onClick={submitForm}>
                   Submit
                 </Button>
-              </Box>
+              </>
             )}
-          </ColumnsWrapper>
-        </CartPageWrapper>
       </Center>
+      </Bg>
     </>
   );
 }

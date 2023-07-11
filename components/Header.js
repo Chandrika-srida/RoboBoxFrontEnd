@@ -3,8 +3,10 @@ import styled, { keyframes } from "styled-components";
 import { useContext, useState } from "react";
 import { CartContext } from "@/components/CartContext";
 import BarsIcon from "@/components/icons/Bars";
-import { primary } from "@/lib/colors";
+import { fourth, primary } from "@/lib/colors";
 import { ButtonStyle } from "./Button"; 
+
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -15,25 +17,26 @@ const fadeIn = keyframes`
 `;
 
 const StyledHeader = styled.header`
-font-size: 20px;
+font-size: 1rem;
 position: fixed;
+z-index: 2;
 width: 100%;
 font-weight: bold;
+border-box:box-sizing;
 `; 
 
-const Logo = styled(Link)``;
+const Logo = styled(Link)`
+
+`;
 
 const Wrapper = styled.div`
 display: flex;
 justify-content:space-around;
 // justify-content:space-between;
 // justify-content:space-evenly;
-padding: 15px 0px;  
-align-items: center;
-
-  & > div:first-child {
-    margin-right: auto;
-  }
+padding: 0.5rem 0px; 
+    align-items: center;
+    align-content: center;
 `;
 
 
@@ -67,22 +70,21 @@ text-transform: capitalize;
 const NavLink = styled(Link)`
 ${ButtonStyle};
 background-color: transparent;
-color: ${primary};
-padding: 8px;
+color: ${fourth};
+padding: 0.2rem;
+height: 2rem;
 text-transform: capitalize;
-font-size: 20px;
+font-size: 1.3rem;
 border-radius: 5px;
-
 transition: all 0.2s ease-in-out;
 &:hover {
-  border: 2px solid ${primary};
+  border: 2px solid ${fourth};
 }
   @media screen and (min-width: 768px) {
   }
 `;
 
 const NavButton = styled.button`
-  
   width: 30px;
   height: 30px;
   border: 0;
@@ -106,28 +108,28 @@ export default function Header() {
     
     <StyledHeader 
     style={{
-      paddingLeft: '20px',
-      width: '100%',
-      height: '60',
+      width: '100vw',
+      height: '10vh',
       backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
       border:'0',
-      backgroundImage: `url("images/Main_Bbg.png")`,
+      backgroundImage: `url("images/Main_bbg.png")`,
     }}>
       <Wrapper>
       <Logo href={"/"}>
-        <img src="images/logo_Bbg.png"
+        <img src="images/logo_bbg.png"
         height='50px'/>
       </Logo>          
           <StyledNav mobileNavActive={mobileNavActive}>
           <NavLink href={"/"}>Home</NavLink>
           <NavLink href={"/products"}>Products</NavLink>
-          <NavLink href={"/dealsPage"}>Today's deal</NavLink>
+          <NavLink href={"/#deal"}>Today's deal</NavLink>
           <NavLink href={"/workshops"}>Workshops</NavLink>
           <NavLink href={"/"}>Quizes</NavLink>
-          <NavLink href={"/supportPage"}>Customer Service</NavLink>     
+          <NavLink href={"/#support"}>Customer Service</NavLink>     
           <NavLink href={"/cart"}>Cart ({cartProducts.length})</NavLink>
           </StyledNav>
-          <NavLink href={"/loginPage"}>Login</NavLink>
+          <NavLink href={"/#login"}>Login</NavLink>
           <NavButton onClick={() => setMobileNavActive(prev => !prev)}>
             <BarsIcon />
           </NavButton>

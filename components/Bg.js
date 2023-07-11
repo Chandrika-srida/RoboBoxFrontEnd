@@ -1,13 +1,13 @@
 import styled, {css} from "styled-components";
-import {primary,secondary,third,fourth} from "@/lib/colors";
+import {fifth} from "@/lib/colors";
 
 export const BgStyle = css`
 height: 100vh;
-padding-top:70px;
+padding-top: 10vh;
 box-sizing: border-box;
-background-color: ${third};
+background-color: ${fifth};
 text-align: center;
-  
+width:100%; 
 `;
 
 

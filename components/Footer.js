@@ -8,6 +8,8 @@ import Des from "@/components/Des";
 const Bg=styled.div`
 ${BgStyle};
 height:50vh;
+padding-top:0px;
+margin-top: 0px;
 `;
 const Box1=styled.div`
 height: 25vh;

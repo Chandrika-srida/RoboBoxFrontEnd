@@ -1,0 +1,15 @@
+body{
+
+    z-index: -2;
+
+    margin-top: 10px;
+    justify-content: start;
+    align-items: ;
+    align-content: center;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    
+
+}

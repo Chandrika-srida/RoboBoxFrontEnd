@@ -3,11 +3,11 @@ import ProductBox from "@/components/ProductBox";
 
 const StyledProductsGrid = styled.div`
   display: grid;
+  margin-top:5vh;
   gap: 30px;
-  // padding: 20px;
-  // border:solid black 3px;
   @media screen and (min-width: 768px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
   }
 `;
 

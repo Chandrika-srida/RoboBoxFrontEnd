@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { primary, secondary, third } from "@/lib/colors";
+import { primary, secondary, third, fourth } from "@/lib/colors";
 import Head from "@/components/Head";
 import Des from "@/components/Des";
-import Button from "@/components/Button"
+import Button from "@/components/Button";
+import DatePicker from "./DatePicker";
+
+
 
 const StyledInput = styled.input`
   width: 100%;
-  height: 50px;
+  height: 45px;
   padding: 5px 20px;
   font-size: 18px;
   margin-top: 20px;
@@ -18,10 +21,11 @@ const StyledInput = styled.input`
 `;
 const StyledTextArea = styled.input`
   width: 100%;
-  height: 80px;
+  height: 70px;
   padding: 10px 20px;
   font-size: 18px;
-  margin: 20px 0px;
+  margin-top: 20px;
+  margin-bottom: 30px;
   border: 2px solid ${primary};
   border-radius: 10px;
   box-sizing: border-box;
@@ -48,17 +52,18 @@ const StyledDropBox = styled.div`
 
 const Box = styled.div`
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   width: 70%;
   gap: 8%;
+  margin-left: 5%;
+  padding-bottom: 30px;
 `;
 const IBox = styled.div``;
 const Calender = styled.div`
-  background-color: ${third};
-
+  background-color: ${fourth};
   width: 100%;
-  margin: 15% 0;
   border-radius: 20px;
+  padding: 15px;
 `;
 
 export default function FormData() {
@@ -103,15 +108,7 @@ export default function FormData() {
 
   const renderForm = () => {
     return (
-      <StyledBox
-        style={{
-          width: "100%",
-          // height: '100vh',
-          backgroundSize: "cover",
-          backgroundImage: `url("images/DemoWS_wbg.png")`,
-          boxSizing: "border-box",
-        }}
-      >
+      <StyledBox>
         <Head left>Book demo workshop now</Head>
         <form onSubmit={handleSubmit}>
           <Box>
@@ -157,10 +154,14 @@ export default function FormData() {
                 onChange={(ev) => setAddress(ev.target.value)}
               />
               <br />
+              <Button type="submit">Submit</Button>
             </IBox>
-            <Calender></Calender>
+            <Calender>
+              {/* <DateSelector /> */}
+
+              <DatePicker/>
+            </Calender>
           </Box>
-          <Button type="submit">Submit</Button>
         </form>
       </StyledBox>
     );

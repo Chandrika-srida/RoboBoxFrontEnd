@@ -1,85 +1,70 @@
 import styled from "styled-components";
 import CartIcon from "@/components/icons/CartIcon";
 import Link from "next/link";
-import {useContext} from "react";
-import {CartContext} from "@/components/CartContext";
-import {ButtonStyle} from "@/components/Button";
+import { useContext } from "react";
+import { CartContext } from "@/components/CartContext";
+import { ButtonStyle } from "@/components/Button";
 import { DesStyle } from "@/components/Des";
-import {fourth} from "@/lib/colors";
+import { fourth } from "@/lib/colors";
 
 const Des = styled.div`
   ${DesStyle}
-  font-size:18px;
+  font-size:1.2rem;
 `;
 
 const Button = styled.div`
   ${ButtonStyle}
   text-transform:capitalize;
+  font-size: 1rem;
+  margin: 0px 2vw;
+  height:2rem;
 `;
 
 const ProductWrapper = styled.div`
-background-color:${fourth};
-border-radius: 15px;
-text-align:center;
-padding: 20px;
+  background-color: ${fourth};
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 1vh;
 `;
 
 const WhiteBox = styled(Link)`
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  img{
-    max-width: 100%;
-    max-height: 180px;
+  width: 15vw;
+  height:25vh;
+  box-sizing: border-box;
+  img {
+    max-width: 15vw;
+    max-height: 25vh;
   }
 `;
 
 const ProductInfoBox = styled.div`
+  width: 100%;
   display:grid;
-  align-items:center;
-  align-content: center;
-  grid-template-rows: 1fr 2fr;
-`;
-
-const PriceRow = styled.div`
-  @media screen and (min-width: 768px) {
-    display:grid;
-    align-items:center;
-    align-content: center;
-  grid-template-rows: 1fr 2fr;
-  // border:solid black 2px;
-  }
-
+  grid-template-rows: 0.6fr 0.5fr 1fr;
 `;
 
 const Price = styled.div`
-font-size: 20px;
-  font-weight:400;
-  // border:solid black 2px;
-
   @media screen and (min-width: 768px) {
-    font-weight:600;
   }
 `;
 
-export default function ProductBox({_id,title,description,price,images}) {
-  const {addProduct} = useContext(CartContext);
-  const url = '/product/'+_id;
+export default function ProductBox({ _id, title, description, price, images }) {
+  const { addProduct } = useContext(CartContext);
+  const url = "/product/" + _id;
   return (
     <ProductWrapper>
       <WhiteBox href={url}>
-          <img src={images?.[0]} alt=""/>
+        <img src={images?.[0]} alt="" />
       </WhiteBox>
       <ProductInfoBox>
         <Des href={url}>{title}</Des>
-        <PriceRow>
-          <Price>
-            ${price}
-          </Price>
-          <Button secondary onClick={() => addProduct(_id)}>Add to cart</Button>
-        </PriceRow>
+        <Price>${price}</Price>
+        <Button secondary onClick={() => addProduct(_id)}>
+          Add to cart
+        </Button>
       </ProductInfoBox>
     </ProductWrapper>
   );

@@ -6,22 +6,25 @@ border: 0;
 background-color: ${primary};
 color: ${fourth};
 font-weight: 600;
-font-size: 25px;
+font-size: 1.5rem;
+height: 3rem;
+justify-self:center;
+align-self:center;
 text-transform: uppercase;
 border-radius: 8px;
 text-align: center;
-padding: 10px 30px;  
-letter-spacing: 0.5px;
-  svg{
-    height: 16px;
-    margin-right: 5px;
-  }
+padding: 0.5rem 1rem;  
+letter-spacing: 0.05rem;
   ${props => props.fourth && css`
   background-color: ${fourth};
 color: ${primary};
   `}
   ${props => props.secondary && css`
   background-color: ${secondary};
+color: ${primary};
+  `}
+  ${props => props.third && css`
+  background-color: ${third};
 color: ${primary};
   `}
 
